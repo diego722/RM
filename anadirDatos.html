@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <title>Añadir nuevos datos sobre el cliente</title>
+</head>
+<body>
+    <a href="{% url 'DatosExternos' %}">Volver a la página principal</a>
+
+
+    <h1>Cualquier dato añadido, se trasladará a la BBDD central</h1>
+
+
+    <form method="POST" action="Agregar/{{Clientes.id}}">
+        {% csrf_token %}
+
+    <table>
+        <tr>
+            <td>ID cliente</td>
+            <td><input type="text"  name="id" value="{{Clientes.id}}" readonly></td>
+        </tr>
+        <tr>
+            <td>Nombre</td>
+            <td><input type="text"  name="nombre" value="{{Clientes.nombre}}" readonly></td>
+        </tr>
+        <tr>
+            <td>Apellidos</td>
+            <td><input type="text"  name="apellidos" value="{{Clientes.apellidos}}" readonly></td>
+        </tr>
+        <tr>
+            <td>Telefono</td>
+            <td><input type="text" name="tfno" value="{{Clientes.tfno}}" readonly></td>
+        </tr>  
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="email" value="{{Clientes.email}}" readonly></td>
+        </tr>
+        <tr>
+            <td>Edad</td>
+            <td><input type="text" name="edad" value="{{Clientes.edad}}" ></td>
+        </tr> 
+        <tr>
+            <td>Producto</td>
+            <td><input type="text" name="producto" value="{{Clientes.producto}}" ></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value= "Guardar"></td>
+        </tr>
+    </table>
+    {% if messages %}
+    {% for mess in messages %}
+    <b>{{mess}}</b>
+    {% endfor %}
+    {% endif %}     
+    </form> 
+</body>
+</html>

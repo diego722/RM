@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+    <title>Datos en Sistema Externo</title>
+</head>
+<body>
+    
+    <table>
+        <tr> 
+            <th>Id Cliente</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Edad</th>
+            <th>Producto</th>
+        </tr>
+        {% for result in data%}
+        <tr>
+            <td>{{result.id}}</td>
+            <td>{{result.nombre}}</td>
+            <td>{{result.apellidos}}</td>
+            <td>{{result.direccion}}</td>
+            <td>{{result.tfno}}</td>
+            <td>{{result.edad}}</td>
+            <td>{{result.producto}}</td>
+            <td><a href="Edicion/{{result.id}}">Editar</a></td>
+            <td><a href="Anadir/{{result.id}}">Añadir</a></td>
+
+
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

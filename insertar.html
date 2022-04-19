@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <title>ALTA DE CLIENTES</title>
+</head>
+<body>
+    <a href="{% url 'showClientes' %}">Volver al Portal Principal</a>
+
+    <h1>Introduzca sus datos personales para comenzar</h1>
+   <form method="POST">
+       {% csrf_token %}
+   
+    <table>
+        <tr>
+            <td>Nombre</td>
+            <td><input type="text" placeholder="Espacio requerido" name="nombre"></td>
+        </tr>
+        <tr>
+            <td>Apellidos</td>
+            <td><input type="text" placeholder="Espacio requerido" name="apellidos"></td>
+        </tr>
+        <tr>
+            <td>Direccion</td>
+            <td><input type="text" placeholder="Espacio requerido" name="direccion"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" placeholder="Espacio requerido" name="email"></td>
+        </tr>
+        <tr>
+            <td>Telefono</td>
+            <td><input type="text" placeholder="Espacio requerido" name="tfno"></td>
+        </tr>  
+        
+    </table>
+    <td><input type="submit" value= "Enviar"/></td>
+    {% if messages %}
+    {% for mess in messages %}
+    <b>{{mess}}</b>
+    {% endfor %}
+    {% endif %} 
+    </form> 
+</body>
+</html>
